@@ -5,16 +5,17 @@
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
-    "@rails/webpacker": "4.3.0",
+    "@rails/webpacker": "^5.4.3",
     "bootstrap": "^4.5.3",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1",
-    "turbolinks": "^5.2.0",
-    "node": "12.16.2"
-
+    "turbolinks": "^5.2.0"
   },
-  "version": "0.1.0",
+  "version": "1.x",
   "devDependencies": {
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^4.7.2"
+  },
+  "engines": {
+    "node": "16.x"
   }
 }
