@@ -5,7 +5,6 @@ class WorksController < ApplicationController
     @albums = @works.select { |w| w.category == "album" }
     @books = @works.select { |w| w.category == "book" }
     @movies = @works.select { |w| w.category == "movie" }
-
   end
 
   def top_ten

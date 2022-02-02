@@ -10,7 +10,8 @@ class VotesController < ApplicationController
     @vote.date = Date.today
 
     if @vote.save
-      flash[:session] = "Success"
+      flash[:success] = "Successfully upvoted: #{@work.title}!"
+
       redirect_to work_path(@work) #work_path(@work)
     else
       flash[:error] = "Error, not able to upvote"

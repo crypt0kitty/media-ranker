@@ -9,7 +9,6 @@
      <strong><%= @spotlight.description%></strong>
     </p>
   </section>
-
   <hr class="root__hr" />
   <section class="top-ten__container">
     <section class="top-ten__list-container">
@@ -28,7 +27,7 @@
         <h2 class="top-ten__header">
           Top Books
         </h2>
-        <ul class =  "media-list">
+        <ul class = "media-list">
           <% @books.each do |work| %>
             <li>
               <%= link_to work.title, work_path(work)%> by <%= work.creator%>

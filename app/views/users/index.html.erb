@@ -1,3 +1,4 @@
+
 <main>
   <h2>List of Users</h2>
   <table class="table">
@@ -9,10 +10,13 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <td><a href="/users/615">dee</a></td>
-      <td>0</td>
-      <td>May 13, 2020</td>
+    <% @user.each do |user| %>
+      <tr>
+      <td><%= user.name %></td>
+      <td><%= user.votes.count%></td>
+      <td><%= user.date_joined%></td> 
+      </td>
+    <% end %>
     </tr>
     </tbody>
   </table>
