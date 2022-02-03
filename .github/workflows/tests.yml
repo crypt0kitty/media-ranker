@@ -2,7 +2,7 @@ name: Run Tests
 on:
   pull_request:
     branches:
-      - 'master'
+      - "master"
 jobs:
   tests:
     name: Tests
@@ -31,7 +31,7 @@ jobs:
           sudo bash -c "echo deb http://apt.postgresql.org/pub/repos/apt/ bionic-pgdg main >> /etc/apt/sources.list.d/pgdg.list"
           wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
           sudo apt-get update
-          sudo apt-get -yqq install libpq-dev postgresql-client-11          
+          sudo apt-get -yqq install libpq-dev postgresql-client-11
 
       - name: Build App
         env:
@@ -43,8 +43,8 @@ jobs:
           yarn
           bundle install --jobs 4 --retry 3
           bin/rails db:setup
-  
-      - name: Run Tests 
+
+      - name: Run Tests
         env:
           PGHOST: localhost
           PGUSER: postgres

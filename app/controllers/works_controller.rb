@@ -2,9 +2,9 @@ class WorksController < ApplicationController
   def index
     @works = Work.all
 
-    @albums = @works.select { |w| w.category == "album" }
-    @books = @works.select { |w| w.category == "book" }
-    @movies = @works.select { |w| w.category == "movie" }
+    @albums = @works.select { |w| w.category == 'album' }
+    @books = @works.select { |w| w.category == 'book' }
+    @movies = @works.select { |w| w.category == 'movie' }
   end
 
   def top_ten
@@ -27,11 +27,11 @@ class WorksController < ApplicationController
     @work = Work.new(work_params)
 
     if @work.save
-      flash[:success] = "Successfully added!"
+      flash[:success] = "Successfully added: #{@work.title}!"
       redirect_to work_path(@work)
       return
     else
-      flash.now[:error] = "Something happened. Not created"
+      flash.now[:error] = "Something happened. #{@work.title} not created"
       render :new, status: :bad_request
       return
     end
@@ -54,10 +54,10 @@ class WorksController < ApplicationController
       return
     elsif @work.update(work_params)
       redirect_to work_path(@work.id)
-      flash[:success] = "Updated #{@work.title}"
+      flash[:success] = "Successfully updated: #{@work.title}!"
       return
     else
-      flash.now[:error] = "Something happened. Not added"
+      flash.now[:error] = "Something happened. #{@work.title} not updated"
       render :edit, status: :bad_request
       return
     end
@@ -77,7 +77,19 @@ class WorksController < ApplicationController
   end
 
   private
+
   def work_params
-    return params.require(:work).permit(:category, :title, :creator, :publication_year, :description, :session)
+    return(
+      params
+        .require(:work)
+        .permit(
+          :category,
+          :title,
+          :creator,
+          :publication_year,
+          :description,
+          :session
+        )
+    )
   end
 end

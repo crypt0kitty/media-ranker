@@ -1,4 +1,4 @@
-require "test_helper"
+require 'test_helper'
 
 describe Work do
   describe 'validations' do
@@ -10,6 +10,7 @@ describe Work do
     it 'is valid when all fields are present' do
       # Act
       result = @work.valid?
+
       # Assert
       expect(result).must_equal true
     end
@@ -17,6 +18,7 @@ describe Work do
     it 'is invalid without a title' do
       # Arrange
       @work.title = nil
+
       # Assert
       expect(@work.valid?).must_equal false
       expect(@work.errors.messages.include?(:title)).must_equal true
@@ -24,6 +26,7 @@ describe Work do
 
     it 'is invalid when title is not unique' do
       Work.create(title: @work.title, creator: @work.creator)
+
       # Assert
       expect(@work.valid?).must_equal false
     end

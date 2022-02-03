@@ -20,14 +20,14 @@ class UsersController < ApplicationController
     name = params[:user][:name] #user input
     user = User.find_by(name: name)
 
-    if user #if !user.nil?
+    if user
+      #if !user.nil?
       session[:user_id] = user.id #setting the session id to the user_id
-      flash[:success] = "Successfully logged in as returning user: #{name}"
+      flash[:success] = "Returning user: #{name.upcase}"
     else
-
       user = User.create(name: name, date_joined: Date.today.to_s(:long))
       session[:user_id] = user.id
-      flash[:success] = "Successfully logged in as new user: #{user.name}"
+      flash[:success] = "Welcome, #{user.name.upcase}!"
     end
     redirect_to root_path
     return
@@ -35,8 +35,8 @@ class UsersController < ApplicationController
 
   def logout
     @current_user = User.find_by(id: session[:user_id])
+    flash[:success] = "Bye, #{@current_user.name.upcase}!"
     session[:user_id] = nil
     redirect_to root_path
   end
 end
-

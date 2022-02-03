@@ -1,4 +1,4 @@
-require "test_helper"
+require 'test_helper'
 
 describe VotesController do
   # it "does a thing" do

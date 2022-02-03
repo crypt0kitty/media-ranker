@@ -7,4 +7,3 @@ class Work < ApplicationRecord
     return spotlight_for_all_works
   end
 end
-

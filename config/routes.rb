@@ -3,9 +3,10 @@ Rails.application.routes.draw do
   root 'homepages#index'
 
   get '/works/new', to: 'works#new', as: 'new_work'
-  get '/works/:id', to: 'works#show', as: "work"
+  get '/works/:id', to: 'works#show', as: 'work'
   get '/works', to: 'works#index', as: 'works'
-  get  '/works/:id/edit', to: 'works#edit', as: 'edit_work'
+  get '/works/:id/edit', to: 'works#edit', as: 'edit_work'
+
   # put '/works/:id', to: 'works#update'
   patch '/works/:id', to: 'works#update'
   post '/works', to: 'works#create'
@@ -17,9 +18,8 @@ Rails.application.routes.draw do
   get '/users/:id/edit', to: 'users#edit', as: 'edit_user'
 
   # session
-  get "/login", to: "users#login_form", as: "login"
-  post "/login", to: "users#login"
-  post "/logout", to: "users#logout", as: "logout"
-  get "/users/current", to: "users#current", as: "current_user"
-
+  get '/login', to: 'users#login_form', as: 'login'
+  post '/login', to: 'users#login'
+  post '/logout', to: 'users#logout', as: 'logout'
+  get '/users/current', to: 'users#current', as: 'current_user'
 end
