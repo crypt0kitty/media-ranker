@@ -7,7 +7,7 @@
 # Character.create(name: 'Luke', movie: movies.first)
 require 'csv'
 
-WORK_FILE = Rails.root.join('db', 'seed_data', 'works-seeds.csv')
+WORK_FILE = Rails.root.join('')
 puts "Loading raw works data from #{WORK_FILE}"
 
 work_failures = []

@@ -44,3 +44,4 @@ ActiveRecord::Schema.define(version: 2020_11_16_072836) do
   add_foreign_key 'votes', 'users'
   add_foreign_key 'votes', 'works'
 end
+
