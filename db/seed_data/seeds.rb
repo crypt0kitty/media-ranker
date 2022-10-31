@@ -7,7 +7,7 @@
 # Character.create(name: 'Luke', movie: movies.first)
 require 'csv'
 
-WORK_FILE = Rails.root.join('')
+WORK_FILE = Rails.root.join('db', 'seed_data', 'works-seeds.csv')
 puts "Loading raw works data from #{WORK_FILE}"
 
 work_failures = []
@@ -19,7 +19,10 @@ CSV.foreach(WORK_FILE, headers: true) do |row|
   work.publication_year = row['publication_year']
   work.description = row['description']
 
-  successful = work.save
+  successful = work.save!
+
+  puts "created work: #{work.inspect}"
+
   if !successful
     work_failures << work
     puts "Failed to save work: #{work.inspect}"
